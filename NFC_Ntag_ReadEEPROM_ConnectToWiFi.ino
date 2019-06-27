@@ -452,6 +452,16 @@ void establishWiFiConnection() {
         
         ConnectedToWiFi = false;
       }
+      Serial.println("Updating the new runtime connection details");
+      NewSSID.trim();
+      memset(ssid, 0, strlen(ssid));
+      ssid = (char *) malloc(sizeof(NewSSID.length())+1);
+      NewSSID.toCharArray(ssid, NewSSID.length()+1);
+      NewPWD.trim();
+      memset(pass, 0, strlen(pass));
+      pass = (char *) malloc(sizeof(NewPWD.length())+1);
+      NewPWD.toCharArray(pass, NewPWD.length()+1);
+      
     }
   }
 
